@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7e9dc">
+<title>NIÑA HERMOSA</title>
+<style>
+:root{--paper:#f7e9dc;--ink:#302925;--pink:#ed5c9c;--leaf:#10a37e}*{box-sizing:border-box}html,body{width:100%;height:100%;margin:0}body{overflow:hidden;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif}.scene{position:relative;width:100%;height:100svh;min-height:360px;overflow:hidden;background:var(--paper)}.greeting{position:absolute;z-index:6;top:8%;left:5%;width:min(40%,520px);max-height:78%;overflow:auto;padding:22px 24px;border:1px solid #d98ca688;border-radius:18px;background:#fff8f0ed;box-shadow:0 12px 34px #61433d24;color:#302925;font-size:clamp(12px,1.08vw,15px);line-height:1.65;scrollbar-color:#d88ba8 #f4e8df;scrollbar-width:thin}.greeting h1{margin:0 0 16px;text-align:center;font-size:clamp(21px,2vw,28px);font-weight:500;line-height:1.2}.greeting p{margin:0 0 14px}.greeting p:last-child{margin-bottom:0}.tree-wrap{position:absolute;z-index:1;right:2.7%;top:4.2%;height:87%;width:58%;min-width:340px}.tree{width:100%;height:100%;overflow:visible}.trunk{fill:#079f7a;clip-path:inset(100% 0 0 0);animation:grow 1.9s cubic-bezier(.2,.7,.25,1) .15s forwards}.branch{fill:none;stroke:#0aab83;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1800;stroke-dashoffset:1800;animation:draw 2.4s ease-out .25s forwards}.twig{fill:none;stroke:#12b48b;stroke-width:4;stroke-linecap:round;stroke-dasharray:360;stroke-dashoffset:360;animation:draw 1.6s ease-out 1s forwards}.leaves{opacity:0;animation:appear .8s ease-out 1.3s forwards}.flower-sway{transform-box:fill-box;transform-origin:center;animation:sway 3.8s ease-in-out var(--sway-delay) infinite alternate}.bloom{transform-box:fill-box;transform-origin:center;opacity:0;animation:bloom .72s cubic-bezier(.2,.8,.2,1.35) var(--bloom-delay) both}.petal{transform-box:fill-box;transform-origin:center;opacity:0;animation:drift 5.5s ease-in var(--petal-delay) infinite both}.baseline{position:absolute;z-index:2;left:.8%;right:3.8%;bottom:6.15%;height:2px;background:#26201d;animation:appear .8s ease 1s both}@keyframes grow{to{clip-path:inset(0)}}@keyframes draw{to{stroke-dashoffset:0}}@keyframes appear{to{opacity:1}}@keyframes bloom{0%{opacity:0;transform:scale(0) rotate(-30deg)}75%{opacity:1;transform:scale(1.2) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}@keyframes sway{from{transform:rotate(-7deg)}to{transform:rotate(7deg)}}@keyframes drift{0%{opacity:0;transform:translateY(-35px) rotate(0)}15%{opacity:.85}85%{opacity:.8}100%{opacity:0;transform:translateY(130px) rotate(260deg)}}@media(max-width:640px){.scene{min-height:560px}.greeting{left:6%;top:5%;width:88%;max-height:45%;padding:16px 17px;font-size:13px;line-height:1.55}.greeting h1{font-size:22px}.greeting p{margin-bottom:12px}.tree-wrap{width:100%;height:76%;min-width:0;right:-4%;top:15%}.baseline{bottom:7.2%;left:2%;right:2%}}@media(max-height:500px) and (min-width:641px){.scene{min-height:300px}.tree-wrap{height:98%;top:-1%}.greeting{top:10%}.baseline{bottom:8%}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+/* Sorpresa interactiva, lluvia de flores y respuestas */
+.surprise-button{position:absolute;z-index:7;left:6.2%;bottom:10.8%;border:1px solid #f7a1bf;border-radius:99px;padding:12px 20px;background:linear-gradient(100deg,#e66c96,#f393b1);color:#fff;font:600 11px ui-monospace,Consolas,monospace;letter-spacing:.12em;box-shadow:0 7px 24px #d64f853b;cursor:pointer;transition:transform .2s,box-shadow .2s}.surprise-button:hover{transform:translateY(-2px);box-shadow:0 10px 28px #d64f8570}.surprise-button:focus-visible,.answer-button:focus-visible,.back-button:focus-visible{outline:2px solid #fff;outline-offset:3px}.falling-layer{position:absolute;inset:0;z-index:5;overflow:hidden;pointer-events:none}.falling-flower{position:absolute;top:-32px;left:var(--left);font-size:var(--size);line-height:1;color:var(--flower-color);text-shadow:0 1px 2px #fff9,0 0 9px #ed7da9a0;will-change:transform,opacity;animation:flowerDrop var(--fall-time) cubic-bezier(.42,0,.65,.48) forwards}.falling-flower.landed{transform:translate(var(--drift),var(--land-y)) rotate(var(--turn));animation:flowerFade .45s ease-in forwards}@keyframes flowerDrop{0%{opacity:0;transform:translate(0,0) rotate(0)}8%{opacity:1}100%{opacity:.98;transform:translate(var(--drift),var(--land-y)) rotate(var(--turn))}}@keyframes flowerFade{to{opacity:0;transform:translate(var(--drift),var(--land-y)) rotate(var(--turn)) scale(.65)}}.baseline{z-index:3}
+.surprise-screen{position:absolute;z-index:20;inset:0;display:grid;place-items:center;overflow:hidden;padding:18px;background:radial-gradient(ellipse at 50% 45%,#4e202d 0,#29121a 54%,#12090e 100%);opacity:1;transition:opacity .45s ease}.surprise-screen.hidden{display:none}.surprise-card{position:relative;width:min(100%,370px);padding:28px 24px 23px;text-align:center;border:1px solid #ffffff24;border-radius:22px;background:linear-gradient(145deg,#240b12f2,#17070cfa);box-shadow:0 22px 70px #0009,0 0 55px #f2719b14;animation:cardEnter .75s cubic-bezier(.18,.82,.26,1.15) both}.surprise-card:before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(135deg,#ffccde0c,transparent 55%)}@keyframes cardEnter{from{opacity:0;transform:translateY(20px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}.answer{position:relative;margin:0 auto 14px;max-width:315px;min-height:66px;display:grid;place-items:center;color:#fff2ed;font-size:clamp(28px,7vw,36px);line-height:1.04;font-weight:700;text-wrap:balance;text-shadow:0 2px 16px #f07a9b30}.answer.pop{animation:answerPop .65s cubic-bezier(.2,.85,.25,1.25)}@keyframes answerPop{0%{transform:scale(.72);opacity:.2}65%{transform:scale(1.12);opacity:1}100%{transform:scale(1)}}.dog-window{position:relative;width:min(64vw,220px);height:min(51vw,170px);margin:0 auto 15px;overflow:hidden;border-radius:36% 36% 28% 28%;border:2px solid #ffc3d344;box-shadow:0 8px 28px #f66a9b28,0 0 26px #f66a9b20;background:#f6aabb}.dog-window img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 40%;transition:transform .2s;filter:saturate(.93) brightness(1.02)}.dog-window.happy img{animation:dogHappy .45s ease-in-out 3}.dog-window.comfort img{animation:dogComfort .8s ease-in-out 2}@keyframes dogHappy{50%{transform:translateY(-7px) rotate(-2deg) scale(1.04)}}@keyframes dogComfort{50%{transform:rotate(2deg) scale(1.02)}}.card-caption{margin:0 0 17px;color:#e5bac7;font:9px ui-monospace,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase}.answer-buttons{display:flex;justify-content:center;gap:10px}.answer-button{min-width:128px;border:1px solid #f1a4bd;border-radius:99px;padding:11px 14px;color:#fff;font:600 10px ui-monospace,Consolas,monospace;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:transform .18s,filter .18s}.answer-button:hover{transform:translateY(-2px);filter:brightness(1.12)}.answer-button.yes{background:linear-gradient(100deg,#df638d,#ee8eaa);box-shadow:0 5px 20px #df638d44}.answer-button.no{background:#ffffff0a;border-color:#e6b9c6a8}.back-button{margin-top:15px;border:0;background:transparent;color:#c99eac;font:9px ui-monospace,Consolas,monospace;letter-spacing:.13em;cursor:pointer}.reaction-layer{position:absolute;inset:0;z-index:5;overflow:hidden;pointer-events:none}.reaction-flower{position:absolute;left:var(--x);top:var(--y);font-size:var(--size);color:var(--flower-color);text-shadow:0 0 10px #ff92bc;animation:reactionBurst 1.25s cubic-bezier(.12,.6,.35,1) forwards}@keyframes reactionBurst{0%{opacity:0;transform:translate(0,8px) scale(.3) rotate(0)}18%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.05) rotate(var(--turn))}}@media(max-width:640px){.surprise-button{left:7%;bottom:11.2%;padding:11px 15px;font-size:9px}.surprise-card{padding:25px 18px 19px}.answer-buttons{gap:7px}.answer-button{min-width:0;flex:1;padding:11px 8px;font-size:9px}.back-button{margin-top:13px}}@media(prefers-reduced-motion:reduce){.falling-flower,.surprise-card,.answer.pop,.dog-window img,.reaction-flower{animation-duration:.01ms!important;animation-iteration-count:1!important}}
+
+</style>
+</head>
+<body>
+<main class="scene" id="firstScene" aria-label="Dedicatoria para Niña Hermosa">
+  <article class="greeting" aria-label="Mensaje para ti, niña bonita">
+    <h1>Para ti, niña bonita.</h1>
+    <p>Te hice esta página con programación que estudié en mi prepa. Tengo carrera en eso, entonces no sé si alguien te haya hecho algo así antes, pero si sí, pues está bien, y si no, qué bueno, porque quiero ser el primero en hacerte algo así. Es la primera vez que hago algo de este tipo por alguien.</p>
+    <p>Sé que no nos conocemos al 100%, pero créeme que cuando nos vimos por primera vez me encantó. Me encantó tu forma de ser, tu humor, cómo ibas vestida... No sé, me gustó muchísimo todo de ti.</p>
+    <p>Yo sé que puede haber más chicos, quizá más guapos que yo o más caritas, pero ¿sabes qué? No me importa, porque yo intento ser diferente, la verdad. Por ejemplo, lo de la página. Es fácil dar flores, es fácil dar chocolates, es fácil escribir una carta o mandar un mensaje, pero yo quise hacer este detalle para ti. Quería ser diferente, ¿sabes? Porque créeme que no es tan fácil programar algo así y lograr que todo salga bien. Sé que hay personas que hacen este tipo de cosas con programas que les facilitan el trabajo, pero a mí me gusta hacer las cosas por mi cuenta, desde cero y a mano, porque quiero que tengan mi esencia. Quería dedicarte algo que realmente hubiera salido de mí, de mis conocimientos, de mi tiempo y de mi esfuerzo.</p>
+    <p>Pero bueno, en general, niña, quisiera conocerte más, obviamente si me das la oportunidad. Y si no, pues no pasa nada, seguiremos normal y todo. Te trataré como siempre.</p>
+    <p>Tampoco quiero que con esto pienses mal. Yo solo quiero conocerte y, si se da algo más, ya sea una amistad, seguir siendo conocidos o incluso algo más, pues adelante. Simplemente quería aclararlo para que no haya malentendidos.</p>
+    <p>Pero piénsalo bien, porque yo sé que quizá estás conociendo a alguien más y, sin problemas, también sé que hay muchos que te tiran la onda, y está bien. Eres linda, inteligente, eres el paquete completo.</p>
+    <p>Por cierto, hago esto simplemente porque quiero conocerte más y tener detalles contigo, porque sé que te los mereces.</p>
+    <p>Pero ya, ya le di muchas vueltas. Solo piénsalo bien, porque créeme que no soy perfecto, nadie lo es, pero yo intento mejorar cada día, cada minuto, cada segundo, para ser un buen hijo, hermano, sobrino, nieto, pareja, conocido, amigo y, en general, una buena persona.</p>
+    <p>Entonces te digo: piénsalo bien, toma tu decisión y, cualquiera que sea, créeme que la voy a tomar de la mejor manera y seguiremos normal.</p>
+    <p>Pero bueno, eso era todo, linda. Espero que te haya gustado y si no pues no pasa nada de verdad.</p>
+  </article>
+  <div class="tree-wrap"><svg class="tree" viewBox="0 0 640 540" role="img" aria-label="Árbol de flores rosas">
+    <defs><g id="flower"><ellipse cx="0" cy="-7" rx="4.6" ry="7" fill="currentColor"/><ellipse cx="6.7" cy="-2.2" rx="4.6" ry="7" transform="rotate(72 6.7 -2.2)" fill="currentColor"/><ellipse cx="4.1" cy="5.7" rx="4.6" ry="7" transform="rotate(144 4.1 5.7)" fill="currentColor"/><ellipse cx="-4.1" cy="5.7" rx="4.6" ry="7" transform="rotate(-144 -4.1 5.7)" fill="currentColor"/><ellipse cx="-6.7" cy="-2.2" rx="4.6" ry="7" transform="rotate(-72 -6.7 -2.2)" fill="currentColor"/><circle r="2.6" fill="#ffd36f"/></g></defs>
+    <path class="branch" d="M370 497 C367 433 371 376 365 321 C359 267 369 211 364 151"/>
+    <path class="branch" d="M367 377 C325 348 295 316 258 278 M365 352 C410 320 447 285 480 246 M364 303 C329 274 307 245 288 208 M366 271 C399 242 422 208 434 173 M364 225 C339 198 325 169 322 138 M366 196 C389 168 401 139 404 111 M370 428 C418 408 453 382 481 351 M369 413 C323 390 292 372 266 346"/>
+    <path class="twig" d="M267 286l-24-7m43 29-4 19m166-40 27 1m-53 16 3 20m-151-116-25-4m55 0-5-24m127 24 24-12m-46 1 4-24m-92-4-19-13m44 12-1-26m75 29 19-11m-42-4 1-25m-70 245-25-12m166-9 24-13"/>
+    <g class="leaves" fill="#32c996"><path d="M250 283q-19-22-4-29 18 8 4 29m231-41q21-18 27-3-6 18-27 3m-177-51q-20-17-6-28 18 5 6 28m125-27q17-20 28-7-3 19-28 7m-91-54q-17-17-5-27 17 4 5 27m76-5q15-19 27-8-3 18-27 8m-146 246q-18-18-5-27 17 5 5 27m201 4q19-17 27-3-5 18-27 3"/></g>
+    <path class="trunk" d="M351 523 C356 470 357 421 354 375 C350 322 359 281 358 238 C357 203 355 172 359 142 L375 142 C378 184 376 211 378 245 C381 292 373 328 379 373 C385 421 381 475 387 523Z"/>
+    <g id="flowers"></g><g id="petals"></g>
+  </svg></div>
+  <div class="falling-layer" id="flowerRain" aria-hidden="true"></div>
+  <button class="surprise-button" id="openSurprise" type="button">DALE CLIK AQUI LINDA</button>
+  <div class="baseline" aria-hidden="true"></div>
+</main>
+<section class="surprise-screen hidden" id="surpriseScreen" aria-label="Mi sorpresa para ti">
+  <div class="surprise-card" id="surpriseCard">
+    <h1 class="answer" id="answer" aria-live="polite">¿TE GUSTÓ?</h1>
+    <div class="dog-window" id="dogWindow"><img src="perrito.png" alt="Perrito con moño y rosas"></div>
+    <p class="card-caption">PARA TI, CON MUCHO CARIÑO HERMOSA</p>
+    <div class="answer-buttons">
+      <button class="answer-button yes" id="yesButton" type="button">TE GUSTÓ</button>
+      <button class="answer-button no" id="noButton" type="button">NO TE GUSTÓ</button>
+    </div>
+    <button class="back-button" id="backButton" type="button">← VOLVER A LAS FLORES</button>
+    <div class="reaction-layer" id="reactionLayer" aria-hidden="true"></div>
+  </div>
+</section>
+<audio id="backgroundMusic" src="I%20Wanna%20Be%20Yours.mp3" autoplay loop preload="auto" playsinline aria-hidden="true"></audio>
+<script>
+const flowers=document.querySelector('#flowers'),petals=document.querySelector('#petals');
+let seed=749801;function random(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
+// Las flores brotan una tras otra y luego se mecen suavemente en las ramas.
+for(let i=0;i<420;i++){
+ const y=58+random()*287, center=365+Math.sin((y/345)*Math.PI)*5;
+ const width=20+Math.sqrt(Math.max(0,1-Math.pow((y-202)/150,2)))*155;
+ const x=center+(random()*2-1)*width, size=.54+random()*.75;
+ const position=document.createElementNS('http://www.w3.org/2000/svg','g');position.setAttribute('transform',`translate(${x.toFixed(1)} ${y.toFixed(1)}) scale(${size.toFixed(2)})`);
+ const sway=document.createElementNS('http://www.w3.org/2000/svg','g');sway.setAttribute('class','flower-sway');sway.style.setProperty('--sway-delay',`${(-random()*3).toFixed(2)}s`);
+ const bloom=document.createElementNS('http://www.w3.org/2000/svg','use');bloom.setAttribute('href','#flower');bloom.setAttribute('class','bloom');bloom.style.setProperty('--bloom-delay',`${(0.7+random()*4.5).toFixed(2)}s`);bloom.style.color=['#ed5c9c','#f477aa','#ff91bd','#df4b8d','#f8a3c2'][i%5];
+ sway.appendChild(bloom);position.appendChild(sway);flowers.appendChild(position);
+}
+// Pétalos sueltos atraviesan el árbol después de que empiezan a florecer.
+for(let i=0;i<36;i++){
+ const group=document.createElementNS('http://www.w3.org/2000/svg','g');group.setAttribute('transform',`translate(${235+random()*270} ${95+random()*235})`);
+ const petal=document.createElementNS('http://www.w3.org/2000/svg','ellipse');petal.setAttribute('class','petal');petal.setAttribute('cx','0');petal.setAttribute('cy','0');petal.setAttribute('rx','3.1');petal.setAttribute('ry','6.4');petal.setAttribute('fill',i%2?'#ed5c9c':'#ff9ac1');petal.setAttribute('transform',`rotate(${Math.floor(random()*180)})`);petal.style.setProperty('--petal-delay',`${(2+random()*5).toFixed(2)}s`);group.appendChild(petal);petals.appendChild(group);
+}
+// El saludo se escribe letra por letra, con el cursor parpadeante.
+
+// Lluvia ligera: cada flor cae, permanece en el suelo 3 segundos y luego se desvanece.
+const firstScene=document.querySelector('#firstScene'),rain=document.querySelector('#flowerRain');
+let rainTimer=null,rainSeed=1604;function rainRandom(){rainSeed=(rainSeed*1664525+1013904223)>>>0;return rainSeed/4294967296}
+function dropFlower(){if(rain.children.length>42)return;const f=document.createElement('span');f.className='falling-flower';f.textContent=['✿','❀','✽'][Math.floor(rainRandom()*3)];const fall=1900+Math.round(rainRandom()*700);f.style.setProperty('--left',`${(4+rainRandom()*91).toFixed(1)}%`);f.style.setProperty('--drift',`${(-48+rainRandom()*96).toFixed(0)}px`);f.style.setProperty('--land-y',`${Math.round(firstScene.clientHeight*(.92+rainRandom()*.02))}px`);f.style.setProperty('--fall-time',`${fall}ms`);f.style.setProperty('--turn',`${Math.round(240+rainRandom()*500)}deg`);f.style.setProperty('--size',`${17+Math.round(rainRandom()*13)}px`);f.style.setProperty('--flower-color',['#f35797','#ff8fba','#e74787','#ffc0d5'][Math.floor(rainRandom()*4)]);rain.appendChild(f);setTimeout(()=>f.classList.add('landed'),fall+3000);setTimeout(()=>f.remove(),fall+3500)}
+function startRain(){if(!rainTimer){dropFlower();rainTimer=setInterval(dropFlower,180)}}function stopRain(){clearInterval(rainTimer);rainTimer=null}
+// La tarjeta usa los textos del diseño; cambia estas respuestas si quieres otro mensaje.
+const surprise=document.querySelector('#surpriseScreen'),answer=document.querySelector('#answer'),dog=document.querySelector('#dogWindow'),reaction=document.querySelector('#reactionLayer');
+const backgroundMusic=document.querySelector('#backgroundMusic');
+function startBackgroundMusic(){backgroundMusic.volume=1;backgroundMusic.muted=false;backgroundMusic.loop=true;backgroundMusic.play().catch(()=>{});}
+startBackgroundMusic();
+document.addEventListener('pointerdown',startBackgroundMusic,{once:true});document.addEventListener('keydown',startBackgroundMusic,{once:true});
+document.querySelector('#openSurprise').addEventListener('click',()=>{startBackgroundMusic();stopRain();firstScene.style.display='none';surprise.classList.remove('hidden')});
+document.querySelector('#backButton').addEventListener('click',()=>{surprise.classList.add('hidden');firstScene.style.display='block';startRain()});
+function celebrate(kind){answer.textContent=kind==='yes'?'ME GUSTAS':'ESTÁ BIEN, HERMOSA 💐';answer.classList.remove('pop');void answer.offsetWidth;answer.classList.add('pop');dog.classList.remove('happy','comfort');void dog.offsetWidth;dog.classList.add(kind==='yes'?'happy':'comfort');const total=kind==='yes'?24:14;for(let i=0;i<total;i++){const p=document.createElement('span');p.className='reaction-flower';p.textContent=kind==='yes'?['♡','✿','♥'][i%3]:['❀','✿'][i%2];p.style.setProperty('--x',`${18+rainRandom()*64}%`);p.style.setProperty('--y',`${20+rainRandom()*47}%`);p.style.setProperty('--dx',`${-110+rainRandom()*220}px`);p.style.setProperty('--dy',`${-100-rainRandom()*190}px`);p.style.setProperty('--turn',`${Math.round(rainRandom()*330)}deg`);p.style.setProperty('--size',`${16+Math.round(rainRandom()*20)}px`);p.style.setProperty('--flower-color',['#ff6da9','#ffc0d5','#fff0f6','#e84889'][i%4]);reaction.appendChild(p);setTimeout(()=>p.remove(),1300)}}
+document.querySelector('#yesButton').addEventListener('click',()=>celebrate('yes'));
+document.querySelector('#noButton').addEventListener('click',()=>celebrate('no'));
+startRain();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
